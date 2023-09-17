@@ -13,5 +13,10 @@ after_success:
   - dokcer build -t akhoulani/mulit-nginx ./nginx
   - docker build -t akhoulani/multi/server ./server
   - docker build -t akhoulani/multi/worker ./worker
-
-
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push images to the docker hub
+  - docker push akhoulani/mulit-client
+  - docker push akhoulani/mulit-nginx
+  - docker push akhoulani/multi/server
+  - docker push akhoulani/multi/worker
