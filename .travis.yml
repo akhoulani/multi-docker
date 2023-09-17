@@ -15,7 +15,7 @@ after_success:
   - docker build -t akhoulani/multi/worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Push images to the docker hub
+  # Push production mages to the docker hub 
   - docker push akhoulani/mulit-client
   - docker push akhoulani/mulit-nginx
   - docker push akhoulani/multi/server
