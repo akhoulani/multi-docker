@@ -11,12 +11,12 @@ script:
 after_success:
   - docker build -t akhoulani/mulit-client ./client
   - dokcer build -t akhoulani/mulit-nginx ./nginx
-  - docker build -t akhoulani/multi/server ./server
-  - docker build -t akhoulani/multi/worker ./worker
+  - docker build -t akhoulani/multi-server ./server
+  - docker build -t akhoulani/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push production mages to the docker hub 
   - docker push akhoulani/mulit-client
   - docker push akhoulani/mulit-nginx
-  - docker push akhoulani/multi/server
-  - docker push akhoulani/multi/worker
+  - docker push akhoulani/multi-server
+  - docker push akhoulani/multi-worker
