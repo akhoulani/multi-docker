@@ -10,7 +10,7 @@ script:
 
 after_success:
   - docker build -t akhoulani/mulit-client ./client
-  - dokcer build -t akhoulani/mulit-nginx ./nginx
+  - dokcer build -t akhoulani/multi-nginx ./nginx
   - docker build -t akhoulani/multi-server ./server
   - docker build -t akhoulani/multi-worker ./worker
   # Log in to the docker CLI
