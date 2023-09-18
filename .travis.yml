@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true akhoulani/react-test npm run test
 
 after_success:
-  - docker build -t akhoulani/mulit-client ./client
+  - docker build -t akhoulani/multi-client ./client
   - dokcer build -t akhoulani/multi-nginx ./nginx
   - docker build -t akhoulani/multi-server ./server
   - docker build -t akhoulani/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push production mages to the docker hub 
-  - docker push akhoulani/mulit-client
-  - docker push akhoulani/mulit-nginx
+  - docker push akhoulani/multi-client
+  - docker push akhoulani/multi-nginx
   - docker push akhoulani/multi-server
   - docker push akhoulani/multi-worker
